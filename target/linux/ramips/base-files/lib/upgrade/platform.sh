@@ -130,7 +130,6 @@ platform_check_image() {
 	psr-680w|\
 	px-4885-4M|\
 	px-4885-8M|\
-	rb750gr3|\
 	re6500|\
 	rp-n53|\
 	rt5350f-olinuxino|\
@@ -297,6 +296,7 @@ platform_check_image() {
 		nand_do_platform_check "$board" "$1"
 		return $?;
 		;;
+	mikrotik,rb750gr3|\
 	mikrotik,rbm33g|\
 	re350-v1)
 		[ "$magic" != "01000000" ] && {
@@ -323,6 +323,7 @@ platform_pre_upgrade() {
 	local board=$(board_name)
 
 	case "$board" in
+	mikrotik,rb750gr3|\
 	mikrotik,rbm33g)
 		[ -z "$(rootfs_type)" ] && mtd erase firmware
 		;;
